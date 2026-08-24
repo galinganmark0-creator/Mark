@@ -500,6 +500,41 @@
       .contact-wrapper { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
     }
+        /* Modal Popup Styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(11, 15, 26, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: #0f1524;
+      border: 1px solid rgba(0, 212, 170, 0.3);
+      border-radius: 20px;
+      max-width: 650px;
+      width: 100%;
+      padding: 32px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: none;
+      border: none;
+      color: #8892a4;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .modal-close:hover { color: #00d4aa; }
   </style>
 </head>
 <body>
@@ -597,18 +632,20 @@
       <p class="section-subtitle reveal">Three core pillars of support to help your business scale without the overhead.</p>
       <div class="services-grid">
 
-        <!-- Service 1 -->
+        <!-- Service 1: Customer Support VA -->
         <div class="service-card reveal">
           <div class="service-icon">🎧</div>
-          <h3>Customer Support</h3>
-          <p>Professional, empathetic support that keeps your customers happy and your brand reputation strong.</p>
+          <h3>Customer Support VA</h3>
+          <p>Professional, empathetic support focused on issue resolution, CSAT, and meeting daily KPIs.</p>
           <ul>
-            <li>Inbound & outbound call handling (50+ daily)</li>
-            <li>Email & live chat ticket resolution</li>
-            <li>KPI & CSAT target achievement</li>
-            <li>US client communication & rapport building</li>
-            <li>CRM data entry & follow-ups</li>
+            <li>Inbound & Outbound Calling (50+ daily)</li>
+            <li>Ticket Resolution & Email Support</li>
+            <li>Rapport Building & Active Listening</li>
           </ul>
+          <!-- CTA BUTTON -->
+          <button type="button" class="btn btn-outline" onclick="openModal('modal-cs')" style="margin-top:20px; padding:8px 20px; font-size:0.85rem; width:100%;">
+            🔍 View My Workflow & Process
+          </button>
         </div>
 
         <!-- Service 2 -->
@@ -641,7 +678,29 @@
       </div>
     </div>
   </section>
+  <!-- Customer Support Popup Modal -->
+  <div id="modal-cs" class="modal-overlay" onclick="closeModalOnOuter(event, 'modal-cs')">
+    <div class="modal-box">
+      <button type="button" class="modal-close" onclick="closeModal('modal-cs')">&times;</button>
+      <div style="font-size:2.5rem; margin-bottom:12px;">🎧</div>
+      <h3 style="font-family:'Poppins',sans-serif; color:#fff; font-size:1.4rem; margin-bottom:12px;">Customer Support — Workflow & Standard Process</h3>
+      
+      <div style="margin-bottom:20px;">
+        <h4 style="color:#00d4aa; margin-bottom:8px;">📌 How I Execute This Job (Step-by-Step):</h4>
+        <ol style="color:#8892a4; padding-left:20px; line-height:1.8; font-size:0.92rem;">
+          <li><strong style="color:#fff;">1. Active Listening & Triage:</strong> Listen carefully to the caller/ticket, identify urgency, and note key details in the CRM.</li>
+          <li><strong style="color:#fff;">2. Empathy & De-escalation:</strong> Acknowledge frustration, validate concerns, and maintain a calm, professional tone.</li>
+          <li><strong style="color:#fff;">3. Efficient Resolution:</strong> Check company SOPs/knowledge base to resolve inquiries quickly while hitting daily KPI targets.</li>
+          <li><strong style="color:#fff;">4. Accurate Documentation:</strong> Log complete, structured interaction notes so the team stays informed.</li>
+        </ol>
+      </div>
 
+      <div style="background:#111827; padding:18px; border-radius:12px; border:1px solid rgba(0,212,170,0.2);">
+        <h4 style="color:#00b4d8; margin-bottom:6px;">💡 Sample Scenario: Handling a Delayed Shipping Call</h4>
+        <p style="color:#8892a4; font-size:0.88rem;"><strong>My Approach:</strong> Express genuine empathy -> Check carrier API -> Issue store credit/refund per company SOP -> Send proactive follow-up email until delivered.</p>
+      </div>
+    </div>
+  </div>
   <!-- ===== EXPERIENCE ===== -->
   <section class="section" id="experience">
     <div class="container">
@@ -848,6 +907,18 @@
       e.preventDefault();
       alert('Thank you for your message! I will get back to you shortly. 🎉');
       e.target.reset();
+    }
+        // Modal Open & Close Functions
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+    function closeModalOnOuter(event, id) {
+      if (event.target.id === id) {
+        closeModal(id);
+      }
     }
   </script>
 
