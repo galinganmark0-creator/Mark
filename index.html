@@ -647,18 +647,20 @@
             🔍 View Voice & Non-Voice Process
           </button>
         </div>
-        <!-- Service 2 -->
+        <!-- Service 2: Administrative VA -->
         <div class="service-card reveal">
           <div class="service-icon">📋</div>
           <h3>Administrative VA</h3>
-          <p>Reliable back-office support so you can focus on growing your business, not drowning in tasks.</p>
+          <p>Streamlined back-office operations, inbox organization, calendar management, and precise transcription.</p>
           <ul>
-            <li>Email inbox management & prioritization</li>
-            <li>Calendar scheduling & coordination</li>
-            <li>Audio transcription (98% accuracy)</li>
-            <li>Data entry & document organization</li>
-            <li>Research & report preparation</li>
+            <li>Inbox Zero Triage & Email Management</li>
+            <li>Calendar Buffer Scheduling & Meeting Prep</li>
+            <li>98% Accuracy Audio Transcription & Data Entry</li>
           </ul>
+          <!-- CTA BUTTON -->
+          <button type="button" class="btn btn-outline" onclick="openModal('modal-admin')" style="margin-top:20px; padding:8px 20px; font-size:0.85rem; width:100%;">
+            🔍 View Admin Workflows & Systems
+          </button>
         </div>
 
         <!-- Service 3 -->
@@ -697,6 +699,29 @@
       <div style="background:#111827; padding:18px; border-radius:12px; border:1px solid rgba(0,212,170,0.2);">
         <h4 style="color:#00b4d8; margin-bottom:6px;">💡 Sample Scenario: Email / Chat Refund Request</h4>
         <p style="color:#8892a4; font-size:0.88rem;"><strong>Approach:</strong> Customer requests order cancellation via email -> Verify order status in CRM -> Process refund per company SOP -> Reply with friendly confirmation email & refund receipt in under 15 minutes.</p>
+      </div>
+    </div>
+  </div>
+    <!-- Admin VA Popup Modal -->
+  <div id="modal-admin" class="modal-overlay" onclick="closeModalOnOuter(event, 'modal-admin')">
+    <div class="modal-box">
+      <button type="button" class="modal-close" onclick="closeModal('modal-admin')">&times;</button>
+      <div style="font-size:2.5rem; margin-bottom:12px;">📋📅🎧</div>
+      <h3 style="font-family:'Poppins',sans-serif; color:#fff; font-size:1.4rem; margin-bottom:12px;">Administrative VA — Systems & Workflows</h3>
+      
+      <div style="margin-bottom:20px;">
+        <h4 style="color:#00d4aa; margin-bottom:8px;">📌 Executive Support Standard Operating Process:</h4>
+        <ol style="color:#8892a4; padding-left:20px; line-height:1.8; font-size:0.92rem;">
+          <li><strong style="color:#fff;">1. Inbox Zero Management:</strong> Categorize incoming emails into <em>Action Required</em>, <em>Awaiting Reply</em>, or <em>Archive</em> to prevent missed communications.</li>
+          <li><strong style="color:#fff;">2. Calendar & Meeting Prep:</strong> Schedule calls with timezone conversions, set 15-minute buffers between meetings, and prepare pre-meeting notes.</li>
+          <li><strong style="color:#fff;">3. Transcription & Documentation:</strong> Draft pass -> Timestamping unclear audio -> Context and grammar proofreading to maintain 98% accuracy.</li>
+          <li><strong style="color:#fff;">4. Data Entry & Task Tracking:</strong> Keep CRM records updated and manage daily task lists using Trello/Asana/Notion.</li>
+        </ol>
+      </div>
+
+      <div style="background:#111827; padding:18px; border-radius:12px; border:1px solid rgba(0,212,170,0.2);">
+        <h4 style="color:#00b4d8; margin-bottom:6px;">💡 Sample Deliverable: Morning Executive Briefing</h4>
+        <p style="color:#8892a4; font-size:0.88rem;">Every morning at 8:00 AM, I deliver a 2-minute summary: Top 3 urgent emails, today's schedule with prep links, and pending approvals.</p>
       </div>
     </div>
   </div>
